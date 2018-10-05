@@ -40,7 +40,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             }
         } else {
             node = hale;
-            for (int i = antall; i > indeks; i--) {
+            for (int i = antall - 1; i > indeks; i--) {
                 node = node.forrige;
             }
         }
@@ -77,7 +77,27 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
     
     public Liste<T> subliste(int fra, int til) {
-        throw new UnsupportedOperationException("Ikke laget ennå!");
+        fratilKontroll(antall, fra, til);
+        Liste<T> liste = new DobbeltLenketListe<>();
+        
+        Node<T> node = finnNode(fra);
+        for (int i = fra; i < til; i++) {
+            liste.leggInn(node.verdi);
+            node = node.neste;
+        }
+        
+        return liste;
+    }
+    
+    private static void fratilKontroll(int antall, int fra, int til) {
+        if (fra < 0)
+            throw new IndexOutOfBoundsException("fra(" + fra + ") er negativ!");
+        
+        if (til > antall)
+            throw new IndexOutOfBoundsException("til(" + til + ") > antall(" + antall + ")");
+        
+        if (fra > til)
+          throw new IllegalArgumentException("fra(" + fra + ") > til(" + til + ") - illegalt intervall!");
     }
     
     @Override
@@ -109,20 +129,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     
     @Override
     public void leggInn(int indeks, T verdi) {
-        Objects.requireNonNull(verdi);
-        
-        Node<T> node = new Node<>(verdi);
-        
-        if (tom()) {
-            hode = hale = node;
-        } else {
-            hale.neste = node;
-            node.forrige = hale;
-            hale = node;
-        }
-        
-        endringer++;
-        antall++;
+        throw new UnsupportedOperationException("Ikke laget ennå!");
     }
     
     @Override
@@ -149,6 +156,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         Node<T> node = finnNode(indeks);
         T gammelverdi = node.verdi;
         finnNode(indeks).verdi = nyverdi;
+        
+        endringer++;
         
         return gammelverdi;
     }
