@@ -79,12 +79,37 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     
     @Override
     public boolean leggInn(T verdi) {
-        throw new UnsupportedOperationException("Ikke laget ennå!");
+        Objects.requireNonNull(verdi);
+        
+        Node<T> node = new Node<>(verdi);
+        if (tom()) {
+            hode = hale = node;
+        } else {
+            hale.neste = node;
+            node.forrige = hale;
+            hale = node;
+        }
+        antall++;
+        endringer++;
+        return true;
     }
     
     @Override
     public void leggInn(int indeks, T verdi) {
-        throw new UnsupportedOperationException("Ikke laget ennå!");
+        Objects.requireNonNull(verdi);
+        
+        Node<T> node = new Node<>(verdi);
+        
+        if (tom()) {
+            hode = hale = node;
+        } else {
+            hale.neste = node;
+            node.forrige = hale;
+            hale = node;
+        }
+        
+        endringer++;
+        antall++;
     }
     
     @Override
@@ -124,11 +149,31 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     
     @Override
     public String toString() {
-        throw new UnsupportedOperationException("Ikke laget ennå!");
+        StringBuilder setningsBygger = new StringBuilder("[");
+        if (hode != null) {
+            Node<T> gjeldendeNode = hode;
+            setningsBygger.append(hode.verdi);
+            while (gjeldendeNode.neste != null) {
+                gjeldendeNode = gjeldendeNode.neste;
+                setningsBygger.append(", " + gjeldendeNode.verdi);
+            }
+        }
+        setningsBygger.append("]");
+        return setningsBygger.toString();
     }
     
     public String omvendtString() {
-        throw new UnsupportedOperationException("Ikke laget ennå!");
+        StringBuilder setningsBygger = new StringBuilder("[");
+        if (hale != null) {
+            Node<T> gjeldendeNode = hale;
+            setningsBygger.append(hale.verdi);
+            while (gjeldendeNode.forrige != null) {
+                gjeldendeNode = gjeldendeNode.forrige;
+                setningsBygger.append(", " + gjeldendeNode.verdi);
+            }
+        }
+        setningsBygger.append("]");
+        return setningsBygger.toString();
     }
     
     public static <T> void sorter(Liste<T> liste, Comparator<? super T> c) {
