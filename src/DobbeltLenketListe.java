@@ -347,7 +347,29 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         @Override
         public void remove() {
-            throw new UnsupportedOperationException("Ikke laget ennå!");
+            if (!fjernOK)
+                throw new IllegalStateException("Kan ikke slette element");
+            if (iteratorendringer != endringer)
+                throw new ConcurrentModificationException("Antall endringer i listeobjektet "
+                        + "tilsvarer ikke antall endringer i iteratorobjektet!");
+            
+            fjernOK = false;
+            if (antall == 1) {
+                hode = hale = null;
+            } else if (denne == null) {
+                hale = hale.forrige;
+                hale.neste = null;
+            } else if (denne.forrige == hode) {
+                hode = denne;
+                hode.forrige = null;
+            } else {
+                denne.forrige = denne.forrige.forrige;
+                denne.forrige.neste = denne;
+            }
+            
+            antall--;
+            endringer++;
+            iteratorendringer++;
         }
     } // DobbeltLenketListeIterator
 } // DobbeltLenketListe 
