@@ -24,7 +24,7 @@ public class Oblig2Test {
         antallFeil += oppgave3();
         antallFeil += oppgave4();
         antallFeil += oppgave5();
-        //antallFeil += oppgave6();
+        antallFeil += oppgave6();
         //antallFeil += oppgave7();
         //antallFeil += oppgave8();
         //antallFeil += oppgave9();
@@ -871,6 +871,7 @@ public class Oblig2Test {
         }
 
         if (!liste.omvendtString().equals("[]")) {
+            System.out.println(liste.omvendtString());
             System.out.println
                     ("Oppgave 6w: Her må det være en pekerfeil!");
             antallFeil++;
