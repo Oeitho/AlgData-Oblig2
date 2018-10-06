@@ -295,7 +295,19 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
     
     public static <T> void sorter(Liste<T> liste, Comparator<? super T> c) {
-        throw new UnsupportedOperationException("Ikke laget ennå!");
+        for (int i = 0; i < liste.antall(); i++) {
+            for (int j = 0; j < liste.antall() - 1; j++) {
+                if (c.compare(liste.hent(j), liste.hent(j + 1)) > 0) {
+                    bytt(liste, j, j + 1);
+                }
+            }
+        }
+    }
+    
+    private static <T> void bytt(Liste<T> liste, int indeksA, int indeksB) {
+        T temp = liste.hent(indeksA);
+        liste.oppdater(indeksA, liste.hent(indeksB));
+        liste.oppdater(indeksB, temp);
     }
     
     @Override
