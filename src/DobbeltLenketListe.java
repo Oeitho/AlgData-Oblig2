@@ -273,7 +273,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             setningsBygger.append(hode.verdi);
             while (gjeldendeNode.neste != null) {
                 gjeldendeNode = gjeldendeNode.neste;
-                setningsBygger.append(", " + gjeldendeNode.verdi);
+                setningsBygger.append(", ");
+                setningsBygger.append(gjeldendeNode.verdi);
             }
         }
         setningsBygger.append("]");
@@ -287,7 +288,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             setningsBygger.append(hale.verdi);
             while (gjeldendeNode.forrige != null) {
                 gjeldendeNode = gjeldendeNode.forrige;
-                setningsBygger.append(", " + gjeldendeNode.verdi);
+                setningsBygger.append(", ");
+                setningsBygger.append(gjeldendeNode.verdi);
             }
         }
         setningsBygger.append("]");
