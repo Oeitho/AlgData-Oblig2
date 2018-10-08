@@ -145,11 +145,11 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             nyNode.forrige = hale;
             hale = nyNode;
         } else {
-            Node<T> gammelNodeMedIndeks = finnNode(indeks);
-            nyNode.forrige = gammelNodeMedIndeks.forrige;
-            nyNode.neste = gammelNodeMedIndeks;
-            gammelNodeMedIndeks.forrige.neste = nyNode;
-            gammelNodeMedIndeks.forrige = nyNode;
+            Node<T> gammelNode = finnNode(indeks);
+            nyNode.forrige = gammelNode.forrige;
+            nyNode.neste = gammelNode;
+            gammelNode.forrige.neste = nyNode;
+            gammelNode.forrige = nyNode;
         }
         antall++;
         endringer++;
@@ -231,17 +231,10 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             node = hale;
             hale = hale.forrige;
         }
-        if (indeks > 0 && indeks < antall/2) {
-            node = hode;
-            for (int i = 0; i < indeks; i++) {
-                node = node.neste;
-            }
-        } else if (indeks < antall - 1){
-            node = hale;
-            for (int i = antall - 1; i > indeks; i--) {
-                node = node.forrige;
-            }
+        if (indeks > 0 && indeks < antall - 1) {
+            node = finnNode(indeks);
         }
+        
         verdi = node.verdi;
         if (node.forrige != null) node.forrige.neste = node.neste;
         if (node.neste != null) node.neste.forrige = node.forrige;
