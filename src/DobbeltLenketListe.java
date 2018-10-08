@@ -297,14 +297,19 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
     
     public static <T> void sorter(Liste<T> liste, Comparator<? super T> c) {
-        for (int i = 0; i < liste.antall(); i++) {
-            for (int j = 0; j < liste.antall() - 1; j++) {
-                if (c.compare(liste.hent(j), liste.hent(j + 1)) > 0) {
-                    bytt(liste, j, j + 1);
+        for (int i = 0; i < liste.antall(); ++i) {
+            T minsteVerdi = liste.hent(i);
+            int minsteVerdiIndeks = i;
+            for (int j = i + 1; j < liste.antall(); ++j) {
+                if (c.compare(minsteVerdi, liste.hent(j)) > 0) {
+                    minsteVerdi = liste.hent(j);
+                    minsteVerdiIndeks = j;
                 }
             }
+            bytt(liste, minsteVerdiIndeks, i);
         }
     }
+    
     
     private static <T> void bytt(Liste<T> liste, int indeksA, int indeksB) {
         T temp = liste.hent(indeksA);
