@@ -1,3 +1,7 @@
+/*
+ * Skrevet av: Øivind Thorrud - s315695
+ */
+
 import java.util.Comparator;
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
@@ -252,8 +256,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             node.neste = null;
             node = neste;
         }
-        hode = null;
-        hale = null;
+        hode = hale = null;
         antall = 0;
         endringer++;
     }
