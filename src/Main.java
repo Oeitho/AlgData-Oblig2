@@ -1,62 +1,39 @@
-import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Random;
 
 public class Main {
-    private static final int ITERATIONS = 100000;
+    
+    private static final int ITERATIONS = 1000;
+    private static Random random = new Random();
     
     public static void main(String[] args) {
-        String[] navn = {
-                "Lars"
-                ,
-                "Anders"
-                ,
-                "Bodil"
-                ,
-                "Kari"
-                ,
-                "Per"
-                ,
-                "Berit"
-                };
-                Liste<String> liste1 = 
-                new
-                DobbeltLenketListe<>(navn);
-                Liste<String> liste2 = 
-                new
-                TabellListe<>(navn);
-                Liste<String> liste3 = 
-                new
-                EnkeltLenketListe<>(navn);
-                DobbeltLenketListe.
-                sorter
-                (liste1, Comparator.naturalOrder
-                ());
-                DobbeltLenketListe.
-                sorter
-                (liste2, Comparator.naturalOrder
-                ());
-                DobbeltLenketListe.
-                sorter
-                (liste3, Comparator.naturalOrder
-                ());
-                System.
-                out
-                .println(liste1);  
-                // [Anders, Berit, Bodil, Kari, Lars, Per]
-                System.
-                out
-                .println(liste2);  
-                // [Anders, Berit, Bodil, Kari, Lars, Per]
-                System.
-                out
-                .println(liste3);  
-                // [Anders, Berit, Bodil, Kari, Lars, Per]
-                // Tabellen navn er upåvirket:
-                System.
-                out
-                .println(Arrays.toString
-                (navn));
-                // [Lars, Anders, Bodil, Kari, Per, Berit]
+        Integer[] i1 = new Integer[ITERATIONS];
+        Integer[] i2 = new Integer[ITERATIONS*4];
+        for (int i = 0; i < ITERATIONS; i++) {
+            i1[i] = random.nextInt();
+        }
+        for (int i = 0; i < ITERATIONS * 4; i++) {
+            i2[i] = random.nextInt();
+        }
+        Liste<Integer> liste1 = new DobbeltLenketListe<Integer>(i1);
+        Liste<Integer> liste2 = new DobbeltLenketListe<Integer>(i2);
+        
+        long startTime1 = System.currentTimeMillis();
+        
+        DobbeltLenketListe.sorter(liste1, Comparator.naturalOrder());
+        
+        long endTime1 = System.currentTimeMillis();
+        
+        long time1 = endTime1 - startTime1;
+        
+        long startTime2 = System.currentTimeMillis();
+        
+        DobbeltLenketListe.sorter(liste2, Comparator.naturalOrder());
+        
+        long endTime2 = System.currentTimeMillis();
+        
+        long time2 = endTime2 - startTime2;
+        
+        System.out.println((double)((double) (time2)/ (double)(time1)));
     }
-    
 }

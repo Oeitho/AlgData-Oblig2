@@ -1,3 +1,7 @@
+/*
+ * Skrevet av: Øivind Thorrud - s315695
+ */
+
 import java.util.Comparator;
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
@@ -145,11 +149,11 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             nyNode.forrige = hale;
             hale = nyNode;
         } else {
-            Node<T> gammelNodeMedIndeks = finnNode(indeks);
-            nyNode.forrige = gammelNodeMedIndeks.forrige;
-            nyNode.neste = gammelNodeMedIndeks;
-            gammelNodeMedIndeks.forrige.neste = nyNode;
-            gammelNodeMedIndeks.forrige = nyNode;
+            Node<T> gammelNode = finnNode(indeks);
+            nyNode.forrige = gammelNode.forrige;
+            nyNode.neste = gammelNode;
+            gammelNode.forrige.neste = nyNode;
+            gammelNode.forrige = nyNode;
         }
         antall++;
         endringer++;
@@ -173,7 +177,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         }
         
         int indeks = 0;
-        Node node = hode;
+        Node<T> node = hode;
         while (node != null) {
             if (node.verdi.equals(verdi)) {
                 return indeks;
@@ -231,17 +235,10 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             node = hale;
             hale = hale.forrige;
         }
-        if (indeks > 0 && indeks < antall/2) {
-            node = hode;
-            for (int i = 0; i < indeks; i++) {
-                node = node.neste;
-            }
-        } else if (indeks < antall - 1){
-            node = hale;
-            for (int i = antall - 1; i > indeks; i--) {
-                node = node.forrige;
-            }
+        if (indeks > 0 && indeks < antall - 1) {
+            node = finnNode(indeks);
         }
+        
         verdi = node.verdi;
         if (node.forrige != null) node.forrige.neste = node.neste;
         if (node.neste != null) node.neste.forrige = node.forrige;
@@ -259,8 +256,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             node.neste = null;
             node = neste;
         }
-        hode = null;
-        hale = null;
+        hode = hale = null;
         antall = 0;
         endringer++;
     }
@@ -273,7 +269,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             setningsBygger.append(hode.verdi);
             while (gjeldendeNode.neste != null) {
                 gjeldendeNode = gjeldendeNode.neste;
-                setningsBygger.append(", " + gjeldendeNode.verdi);
+                setningsBygger.append(", ");
+                setningsBygger.append(gjeldendeNode.verdi);
             }
         }
         setningsBygger.append("]");
@@ -287,7 +284,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             setningsBygger.append(hale.verdi);
             while (gjeldendeNode.forrige != null) {
                 gjeldendeNode = gjeldendeNode.forrige;
-                setningsBygger.append(", " + gjeldendeNode.verdi);
+                setningsBygger.append(", ");
+                setningsBygger.append(gjeldendeNode.verdi);
             }
         }
         setningsBygger.append("]");
@@ -295,14 +293,19 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
     
     public static <T> void sorter(Liste<T> liste, Comparator<? super T> c) {
-        for (int i = 0; i < liste.antall(); i++) {
-            for (int j = 0; j < liste.antall() - 1; j++) {
-                if (c.compare(liste.hent(j), liste.hent(j + 1)) > 0) {
-                    bytt(liste, j, j + 1);
+        for (int i = 0; i < liste.antall(); ++i) {
+            T minsteVerdi = liste.hent(i);
+            int minsteVerdiIndeks = i;
+            for (int j = i + 1; j < liste.antall(); ++j) {
+                if (c.compare(minsteVerdi, liste.hent(j)) > 0) {
+                    minsteVerdi = liste.hent(j);
+                    minsteVerdiIndeks = j;
                 }
             }
+            bytt(liste, minsteVerdiIndeks, i);
         }
     }
+    
     
     private static <T> void bytt(Liste<T> liste, int indeksA, int indeksB) {
         T temp = liste.hent(indeksA);
