@@ -82,13 +82,15 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     
     public Liste<T> subliste(int fra, int til) {
         fratilKontroll(antall, fra, til);
-        Liste<T> liste = new DobbeltLenketListe<>();
+        DobbeltLenketListe<T> liste = new DobbeltLenketListe<>();
         
         Node<T> node = finnNode(fra);
         for (int i = fra; i < til; i++) {
             liste.leggInn(node.verdi);
             node = node.neste;
         }
+        
+        liste.endringer = 0;
         
         return liste;
     }
