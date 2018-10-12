@@ -226,19 +226,14 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     @Override
     public T fjern(int indeks) {
         indeksKontroll(indeks, false);
-        Node<T> node = null;
+        Node<T> node = finnNode(indeks);
         T verdi;
         
         if (indeks == 0) {
-            node = hode;
             hode = hode.neste;
         }
         if (indeks == antall - 1) {
-            node = hale;
             hale = hale.forrige;
-        }
-        if (indeks > 0 && indeks < antall - 1) {
-            node = finnNode(indeks);
         }
         
         verdi = node.verdi;

@@ -1,0 +1,209 @@
+commit 16c716805043b8c01c18d422f47b75b9c682c8b8
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Thu Oct 11 10:32:38 2018 +0200
+
+    Added lesmeg.txt
+
+commit e1c4e3e34ea9dae48e3dcfa77e8c080a4daa138b
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Thu Oct 11 10:31:57 2018 +0200
+
+    Set sublists changes variable to 0 in subliste function
+
+commit 64fbd4bfa5e52a9cfa8ff2a5e8bde852fa95c268
+Merge: 16e5c70 ff31b93
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Thu Oct 11 10:28:06 2018 +0200
+
+    Optimizing the DobbeltLenketListe class
+
+commit ff31b93bbf3df91634fd2403436aba7e7ae2c9da
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Tue Oct 9 15:53:36 2018 +0200
+
+    Added author
+
+commit a0ada8d7193c56a127d3070b53b692af15f172ef
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Mon Oct 8 23:09:50 2018 +0200
+
+    Shortened variable name
+
+commit a9d34e9364fb40a4f9deb46ca89648c613d8e39d
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Mon Oct 8 23:06:21 2018 +0200
+
+    Optimized sorting algorithm
+
+commit 73959d60c1658022dbe9cc80ef9bd4b4618fd61e
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Sat Oct 6 17:43:32 2018 +0200
+
+    Removed String concatenation in toString and omvendtString methods
+
+commit ab2866b6cbd77f8902cd7d604aa6777af2ef8c64
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Sat Oct 6 17:13:35 2018 +0200
+
+    Parameterised the generic type T for Node in indeksTil method
+
+commit 16e5c7097d10c873862399de5edc35b5d4ba6653
+Merge: 7489ed9 5697fd0
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Sat Oct 6 13:39:18 2018 +0200
+
+    Added sorter method
+
+commit 5697fd027703bc390cac52c75ea3a449607ccae7
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Sat Oct 6 13:38:52 2018 +0200
+
+    Added sorter method
+
+commit 7489ed98dfadb73da67ae75fc6b16b36b8147f19
+Merge: b681f2a 53931ec
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Sat Oct 6 00:30:34 2018 +0200
+
+    Added remove method
+
+commit 53931ec5a6ffb2a293efa4fc53dc3f6c8aeb1cd1
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Sat Oct 6 00:30:05 2018 +0200
+
+    Added remove method
+
+commit b681f2a10cd917ab05435e61dd42f2c93e70e626
+Merge: 19ce686 dc226c8
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Sat Oct 6 00:04:00 2018 +0200
+
+    Added DobbeltLenketListeIterator methods
+
+commit dc226c882baa191961d9022ca75b069ebd6c7f16
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Sat Oct 6 00:03:37 2018 +0200
+
+    Added DobbeltLenketListeIterator methods
+
+commit 19ce6862d30a0a50f36b5caec20c8d1d66772dc0
+Merge: 033ad50 03d3230
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Fri Oct 5 23:44:32 2018 +0200
+
+    Added nullstill method
+
+commit 03d3230d0e3ff8978c5ab456a7ad502a5a071b92
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Fri Oct 5 23:44:06 2018 +0200
+
+    Added nullstill method
+
+commit 033ad50223fe04fd9f0b705e84e8b7624afd573f
+Merge: d201303 d173cd1
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Fri Oct 5 20:44:40 2018 +0200
+
+    Added fjern() methodse
+
+commit d173cd10edcbe6f266a795ef5c019e5c3de1215b
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Fri Oct 5 20:42:25 2018 +0200
+
+    Added fjern() methods
+
+commit d2013030527ecb8aff088e93272e4702fb3ffc2c
+Merge: 2e985cf a497878
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Fri Oct 5 19:48:58 2018 +0200
+
+    Added leggInn(int, T) method
+
+commit a497878e5a4ef1298d142adf73b43767a05c2814
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Fri Oct 5 19:48:33 2018 +0200
+
+    Added leggInn(int, T) method
+
+commit 2e985cfeeff76f4c9e1bd87a58acfdc09ee9b607
+Merge: cf013b6 e168053
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Fri Oct 5 18:36:56 2018 +0200
+
+    Added indeksTil and inneholder methods
+
+commit e168053572275a7e9ccd33781672a978d3facdf1
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Fri Oct 5 18:36:31 2018 +0200
+
+    Added indeksTil and inneholder methods
+
+commit cf013b6b6185e4d51d9c1fd6eff0322ddbf1c3de
+Merge: d8091f2 db29a95
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Fri Oct 5 18:27:42 2018 +0200
+
+    Added finnNode, hent and oppdater functions
+
+commit db29a95b386560b461356d1530b7cd707a4c7ada
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Fri Oct 5 18:27:22 2018 +0200
+
+    Added subliste and fratilKontroll method
+
+commit 6c594b685304ebc40da807d6574dfefa4e9db772
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Fri Oct 5 17:14:57 2018 +0200
+
+    Added finnNode, hent and oppdater functions
+
+commit d8091f2f908df45156b1c8d9d6084efa10d146cb
+Merge: 2b0009c 9c28941
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Fri Oct 5 16:57:32 2018 +0200
+
+    Added toString, omvendtString og leggInn functions
+
+commit 9c289418d5a64215f604d94e18cf9603c501c1f2
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Fri Oct 5 16:57:01 2018 +0200
+
+    Added toString, omvendtString og leggInn functions
+
+commit 2b0009cd8c33cf0e3766e9110e6320e552677c93
+Merge: 04acbf2 82f54a6
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Tue Oct 2 22:05:40 2018 +0200
+
+    Added Constructor for DobbeltLenketListe class
+
+commit 82f54a60ea00c2679665667c1ef058a93c5b8bcd
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Tue Oct 2 22:04:56 2018 +0200
+
+    Added Constructor for DobbeltLenketListe class
+
+commit 04acbf21d69f517b73229636664fbe7a0e954b83
+Merge: ada68ce 020d30e
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Tue Oct 2 12:47:30 2018 +0200
+
+    Added Main.java to .gitignore
+
+commit 020d30ef460a7a7428f7bfc3d3a7ab3a3bfb7b5d
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Tue Oct 2 12:46:50 2018 +0200
+
+    Added Main.java to .gitignore
+
+commit ada68ce57a6af6202bcdbb44cdd4ddf53f2a568e
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Mon Oct 1 23:19:18 2018 +0200
+
+    Initial setup
+
+commit b3b8217f00bcd4c30fd5d6eb78480ce9bb6d576a
+Author: Øivind <s315695@stud.hioa.no>
+Date:   Sun Sep 30 14:23:41 2018 +0200
+
+    Initial commit
